@@ -83,7 +83,7 @@ private struct CalculatorInputView: View {
                         Spacer()
                     }
                 }
-
+            
             // Calculate Button
             PrimaryButton(title: "Calculate", action: viewModel.calculateBMI)
                 .disabled(!viewModel.isFormValid)
@@ -119,11 +119,24 @@ private struct BMIResultView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 250)
+            
+            DisclaimerTextView()
         }
         .padding()
         .padding(.bottom, 100) // Отступ для таббара
     }
 }
+
+private struct DisclaimerTextView: View {
+    var body: some View {
+        Text("This calculator is for informational purposes only and is not a substitute for professional medical advice. Always consult a healthcare provider for health concerns.")
+            .font(.caption2)
+            .foregroundColor(.textSecondary)
+            .multilineTextAlignment(.center)
+            .padding(.top, 10)
+    }
+}
+
 
 // MARK: - Reusable UI Components
 
@@ -141,7 +154,7 @@ private struct Header: View {
         self._isShowingInfoSheet = isShowingInfoSheet
         self.backAction = backAction
     }
-
+    
     var body: some View {
         HStack {
             if showBackButton {
@@ -158,7 +171,7 @@ private struct Header: View {
             Spacer()
             
             if showInfoButton || showBackButton {
-                 Button(action: { isShowingInfoSheet = true }) {
+                Button(action: { isShowingInfoSheet = true }) {
                     Image(systemName: "info.circle")
                         .font(.title2.bold())
                         .foregroundColor(.white)
@@ -321,6 +334,28 @@ struct BMITableInfoView: View {
                             Divider().background(Color.white.opacity(0.2))
                         }
                     }
+                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Data Sources")
+                            .font(.headline)
+                            .padding(.top)
+                        
+                        Text("The BMI classifications are based on data from leading public health organizations:")
+                            .font(.footnote)
+                            .foregroundColor(.textSecondary)
+                        
+                        Link("World Health Organization (WHO)", destination: URL(string: "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight")!)
+                            .foregroundStyle(.red)
+                        
+                        Link("U.S. Centers for Disease Control (CDC)", destination: URL(string: "https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html")!)
+                            .foregroundStyle(.red)
+                        
+                        Link("U.K. National Health Service (NHS)", destination: URL(string: "https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/")!)
+                            .foregroundStyle(.red)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .tint(.red)
                 }
             }
             .foregroundColor(.white)
