@@ -26,6 +26,7 @@
 		640168762E2EC3FF00802E52 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640168752E2EC3FF00802E52 /* ProfileView.swift */; };
 		640168792E2EC57500802E52 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640168782E2EC57500802E52 /* OnboardingViewModel.swift */; };
 		6401687B2E2EC58700802E52 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401687A2E2EC58700802E52 /* OnboardingView.swift */; };
+		640168C22E32411900802E52 /* FlagsmithClient in Frameworks */ = {isa = PBXBuildFile; productRef = 640168C12E32411900802E52 /* FlagsmithClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640168C22E32411900802E52 /* FlagsmithClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +205,7 @@
 			);
 			name = WeightCalc;
 			packageProductDependencies = (
+				640168C12E32411900802E52 /* FlagsmithClient */,
 			);
 			productName = WeightCalc;
 			productReference = 6401682F2E28163B00802E52 /* WeightCalc.app */;
@@ -232,6 +235,9 @@
 			);
 			mainGroup = 640168262E28163B00802E52;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				640168C02E32411900802E52 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 640168302E28163B00802E52 /* Products */;
 			projectDirPath = "";
@@ -312,10 +318,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeightCalc/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Roobench;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs access to your camera so you can save your results.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -323,7 +330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.WeightCalcApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -348,10 +355,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeightCalc/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Roobench;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs access to your camera so you can save your results.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -359,7 +367,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.WeightCalcApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -514,6 +522,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		640168C02E32411900802E52 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flagsmith/flagsmith-ios-client.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		640168C12E32411900802E52 /* FlagsmithClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 640168C02E32411900802E52 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */;
+			productName = FlagsmithClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 640168272E28163B00802E52 /* Project object */;
 }

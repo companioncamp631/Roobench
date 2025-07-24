@@ -69,6 +69,11 @@ struct MainView: View {
                 UserDefaults.standard.set(true, forKey: "onbo")
             }
         }
+        .onAppear {
+            AppDelegate.orientationLock = .portrait
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
+        }
     }
 }
 
